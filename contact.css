@@ -1,0 +1,92 @@
+.contact-header {
+    margin-bottom: 4rem;
+    text-align: left;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+
+.contact-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.contact-item-card {
+    background-color: var(--card-bg);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.discord-card {
+    cursor: pointer;
+}
+
+.contact-card-link:hover .contact-item-card, .discord-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.4);
+}
+
+.contact-icon-wrapper {
+    background-color: rgba(191, 162, 219, 0.1);
+    color: var(--accent);
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(191, 162, 219, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-card-link:hover .contact-icon-wrapper, .discord-card:hover .contact-icon-wrapper {
+    background-color: var(--accent);
+    color: #111827;
+}
+
+.contact-item-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.contact-handle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    word-break: break-all;
+}
+
+.contact-action {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: auto;
+    transition: color 0.3s;
+}
+
+.contact-card-link:hover .contact-action, .discord-card:hover .contact-action {
+    color: var(--text-main);
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-item-card {
+        padding: 2rem;
+    }
+}

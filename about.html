@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | About</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Samantha H</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <section class="about-section">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-grid">
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-date">2020 - 2025</span>
+                        <h3>High School Diploma</h3>
+                        <p class="institution">J.N Burnett Secondary</p>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Principal's Honour Roll 2025</li>
+                                <li>Excellence in Computer Information Systems 2024</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-date">2024</span>
+                        <h3>Course Credit</h3>
+                        <p class="institution">Kwantlen Polytechnic University</p>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Grade: 95</li>
+                                <li>Introductory course, Society: Processes and Structures</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-date">2025 - Present</span>
+                        <h3>B.Sc. in Engineering / Science</h3>
+                        <p class="institution">Simon Fraser University</p>
+                        <div class="timeline-details">
+                            <p>Bachelor of Engineering - BE, Applied Science</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2 class="section-title">Interests</h2>
+            
+            <div class="interests-tab-container">
+                <nav class="interests-nav" aria-label="Academic interests navigation">
+                    <button class="tab-btn active" data-target="cars">
+                        Cars
+                    </button>
+                    <button class="tab-btn" data-target="programming">
+                        Programming/Electronics
+                    </button>
+                    <button class="tab-btn" data-target="volunteer">
+                        Hobbies/Volunteering
+                    </button>
+                </nav>
+
+                <div class="interests-content-panels">
+
+                    <div class="interest-panel active" id="cars">
+                        <h3>Motor Vehicles</h3>
+                        <p class="panel-subtitle">Driving, Tinkering, and more</p>
+                        <p>I’ve loved cars for as long as I can remember. It started when I was young and my grandpa would take me on late-night cruises. Over time, that passion grew into working on and tinkering with my own vehicles.</p>
+                    </div>
+
+                    <div class="interest-panel" id="programming">
+                        <h3>Programming/Electronics</h3>
+                        <p class="panel-subtitle">Front-end, Back-end, Hardware</p>
+                        <p>I started programming seven years ago and have enjoyed it ever since. It began with spending an entire summer learning JavaScript and building simple games, which sparked my passion for expressing my ideas through code. Since then, I’ve expanded my skills and learned over five programming languages.</p>
+                    </div>
+
+                    <div class="interest-panel" id="volunteer">
+                        <h3>Hobbies/Volunteering</h3>
+                        <p>During my free time, I enjoy driving, snowboarding, playing guitar, crocheting, and video editing. I especially enjoy activities that allow me to be creative, hands-on, and constantly learning new skills. I also value giving back to my community by volunteering at the Sharing Farm and helping distribute care packages in the Downtown Eastside, where I’ve had the opportunity to support individuals facing difficult circumstances.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const contentPanels = document.querySelectorAll('.interest-panel');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                contentPanels.forEach(panel => panel.classList.remove('active'));
+
+                button.classList.add('active');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Projects</title>
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Samantha H</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="projects-header">
+            <h2 class="section-title">Projects</h2>
+        </header>
+
+        <div class="category-grid">
+            
+            <div class="category-card" data-category="cars">
+                <div class="card-image-wrapper">
+                    <img src="carProjCover.JPG" alt="Automotive Engineering Category">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">Maintenance / Modifications</div>
+                    <h3>Automotive Projects</h3>
+                    <p>Overview: Automotive restoration, electrical integration, and maintenance across multiple vehicles</p>
+                    <p style="margin-bottom: 1.5rem;">Skills: Wiring, Mechanical Troubleshooting, Soldering</p>
+                    <span class="explore-link">Explore Projects &rarr;</span>
+                </div>
+            </div>
+
+            <div class="category-card" data-category="electronics">
+                <div class="card-image-wrapper">
+                    <img src="electronicsProjCover.JPG" alt="Electrical Engineering Category">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">Hardware / Firmware</div>
+                    <h3>Electronics</h3>
+                    <p>Overview: Designing and prototyping circuits, hardware-software integration, and microcontroller layouts</p>
+                    <p style="margin-bottom: 1.5rem;">Skills: Circuit Assembly, Microcontroller Programming, Soldering, Wiring</p>
+                    <span class="explore-link">Explore Projects &rarr;</span>
+                </div>
+            </div>
+
+            <div class="category-card" data-category="lenny">
+                <div class="card-image-wrapper">
+                    <img src="lennyProjCover.JPG" alt="Lenny Project Category">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">Dedicated Build</div>
+                    <h3>Lenny Locker</h3>
+                    <p>Overview: An automated locker used to loan resources to engineering students</p>
+                    <p style="margin-bottom: 1.5rem;">Skills: CAD, 3D Printing, C++, Electronic Integration, Video Editing</p>
+                    <span class="explore-link">Explore Projects &rarr;</span>
+                </div>
+            </div>
+
+            <div class="category-card" data-category="other">
+                <div class="card-image-wrapper">
+                    <img src="otherProjCover.png" alt="Interdisciplinary Category">
+                </div>
+                <div class="card-content">
+                    <h3>Software / Other</h3>
+                    <p>Overview: Software tools, custom web platforms, and collaborative engineering design work</p>
+                    <p style="margin-bottom: 1.5rem;">Skills: Figma, C++, Web Design, Prototyping</p>
+                    <span class="explore-link">Explore Projects &rarr;</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="project-modal" id="projectModal" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-window">
+            <button class="modal-close-btn" aria-label="Close details">&times;</button>
+            <div class="modal-body" id="modalBody">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const projectData = {
+                cars: `
+                    <div class="modal-hero">
+                        <h2>Automotive Projects</h2>
+                        <p class="modal-tagline">Diagnostics, Restoring, Maintaining, Modifying</p>
+                    </div>
+                    <div class="modal-layout-stacked">
+                        <div class="modal-info-full">
+                            
+                            <h3>Core Breakdown</h3>
+                            <p><strong>Infotainment & Electronics:</strong> Modernized several older-generation cars by sourcing, wiring, and mounting aftermarket touchscreen head units along with hardwiring a backup and dashcam system.</p>
+                            <p style="margin-top: 0.5rem;"><strong>Mechanical Repairs:</strong> Replaced broken door handles, restored foggy headlights, fixed stiff window mechanisms. Conducted routine maintenance including oil changes, engine/cabin air filter swaps, replacing windshield wipers.</p>
+                            <p style="margin-top: 0.5rem;"><strong>Component-Level Repair:</strong> Diagnosed a failing HVAC dashboard control unit and fixed it by resoldering cracked joints on the internal circuit board. Resolved power failures by replacing fuses.</p>
+                            <p><strong>Cars: </strong> 2003 Corolla, 2007 Civic, 2012 Ct200H, 2003/2009 Sienna, 2009 Highlander </p>
+
+                            <div class="modal-image-row automotive-lenny-row">
+                                <div class="modal-img-container">
+                                    <img src="windowFix.jpg" alt="Window Restoration">
+                                </div>
+                                <div class="modal-img-container">
+                                    <img src="lightRestore.jpg" alt="Headlight Restoration">
+                                </div>
+                            </div>
+
+                            <div class="tech-badge-container" style="margin-top: 2rem;">
+                                <span class="tech-badge">Automotive Wiring</span>
+                                <span class="tech-badge">Mechanical Repairs</span>
+                                <span class="tech-badge">Soldering</span>
+                                <span class="tech-badge">Diagnostics</span>
+                            </div>
+                        </div>
+                    </div>
+                `,
+
+                electronics: `
+                    <div class="modal-hero">
+                        <h2>Electronics</h2>
+                        <p class="modal-tagline">Designing, Prototyping, and Creating Circuits</p>
+                    </div>
+                    <div class="modal-split">
+                        <div class="modal-info-side">
+                            <h3>Sub-Projects</h3>
+                            <div class="sub-project-item active-tab" data-sub="smarthome">
+                                <h4>1. ProDoBot</h4>
+                                <p class="sub-meta">ESP32 / Motors / Displays / C++ / HTML / CSS</p>
+                            </div>
+                            <div class="sub-project-item" data-sub="dice">
+                                <h4>2. Handheld Dice Randomizer</h4>
+                                <p class="sub-meta">PCB Assembly / Schematics</p>
+                            </div>
+                        </div>
+                        <div class="modal-media-side" id="detailPanel">
+                        </div>
+                    </div>
+                `,
+
+                lenny: `
+                    <div class="modal-hero">
+                        <h2>Lenny Locker</h2>
+                        <p class="modal-tagline">Designing, Prototyping, and Creating</p>
+                    </div>
+                    <div class="modal-layout-stacked">
+                        <div class="modal-info-full">
+                            <h3>Core Breakdown</h3>
+                            <p style="color: var(--text-muted); margin-bottom: 2rem;">Developed an automated toolkit distribution system designed for student use, enabling secure toolkit borrowing through student transit cards.</p>
+                            <p><strong>Features: </strong>
+                                <ul>
+                                    <li>Online registration</li>
+                                    <li>Student access using registered compass cards</li>
+                                    <li>Inventory and access management</li>
+                                </ul>
+                            </p>
+
+                            <h3>Current Expansion</h3>
+                            <p><strong>Future Features: </strong>
+                                <ul>
+                                    <li>Increased distribution capacity</li>
+                                    <li>Distribute toolkits and electronic components</li>
+                                    <li>Users register and request orders online</li>
+                                    <li>Admin user interface</li>
+                                </ul>
+                            </p>
+
+                            <a href = "https://www.instagram.com/reel/DTyemzqkoua/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">Watch Video</a>
+                            
+                            <div class="modal-image-row automotive-lenny-row">
+                                <div class="modal-img-container">
+                                    <img src="lennyBox.jpg" alt="Lenny locker toolkit and box">
+                                </div>
+                                <div class="modal-img-container">
+                                    <img src="lennyWiring.jpg" alt="Lenny locker wiring">
+                                </div>
+                            </div>
+
+                            <div class="tech-badge-container" style="margin-top: 2rem;">
+                                <span class="tech-badge">CAD Modeling</span>
+                                <span class="tech-badge">3D Printing</span>
+                                <span class="tech-badge">Microcontroller Programming</span>
+                                <span class="tech-badge">Circuit Assembly</span>
+                                <span class="tech-badge">Crafting/Building</span>
+                            </div>
+                        </div>
+                    </div>
+                `,
+
+                other: `
+                    <div class="modal-hero">
+                        <h2>Software & Interdisciplinary</h2>
+                        <p class="modal-tagline">Software, Firmware, and Building</p>
+                    </div>
+                    <div class="modal-split">
+                        <div class="modal-info-side">
+                            <h3>Sub-Projects</h3>
+                            <div class="sub-project-item active-tab" data-sub="fitness">
+                                <h4>1. SyncFit</h4>
+                                <p class="sub-meta">Figma / C++ / Software</p>
+                            </div>
+                            <div class="sub-project-item" data-sub="water">
+                                <h4>2. Water Filtration System</h4>
+                            </div>
+                        </div>
+                        <div class="modal-media-side" id="detailPanel">
+                        </div>
+                    </div>
+                `
+            };
+
+            const subProjectDetails = {
+                smarthome: `
+                    <div class="detail-content animate-fade">
+                        <h3>ProDoBot (JourneyHacks 2026)</h3>
+                        <p>Designed and built a prototype voice activated multi-system device intended to help with automated tasks in a office setting.</p>
+                        <p><strong>Features: </strong>
+                            <ul>
+                                <li>Animated robot face display</li>
+                                <li>Mood control (changes lighting, robot face, and timer)</li>
+                                <li>Timer functionality with display</li>
+                                <li>Motorized cable winding system</li>
+                            </ul>
+                        </p>
+
+                        <p><strong>Tools: </strong>
+                            <ul>
+                                <li>ESP32 microcontroller x3</li>
+                                <li>Stepper motor</li>
+                                <li>LED system</li>
+                                <li>Digital and pixel display</li>
+                                <li>C++</li>
+                                <li>HTML/CSS</li>
+                            </ul>
+                        </p>
+                        
+                        <div class="modal-image-row">
+                            <div class="modal-img-container">
+                                <img src="proDoUI.png" alt="User Interface for ProDoBot">
+                            </div>
+                            <div class="modal-img-container">
+                                <img src="proDoFace.png" alt="ProDoBot Robot Face">
+                            </div>
+                        </div>
+
+                        <div class="tech-badge-container" style="margin-top: 1.5rem;">
+                            <span class="tech-badge">Hardware</span>
+                            <span class="tech-badge">C++</span>
+                            <span class="tech-badge">HTML/CSS</span>
+                        </div>
+                    </div>
+                `,
+
+                dice: `
+                    <div class="detail-content animate-fade">
+                        <h3>PCB Dice Randomizer</h3>
+                        <p>Assembled and soldered an electronic dice randomizer using provided schematics and assembly instructions</p>
+                        
+                        <div class="modal-image-row">
+                            <div class="modal-img-container">
+                                <img src="diceRandom.jpg" alt="Dice Randomizer Board">
+                            </div>
+                            <div class="modal-img-container">
+                                <img src="diceDemo.gif" alt="Dice Randomizer Demo">
+                            </div>
+                        </div>
+
+                        <div class="tech-badge-container" style="margin-top: 1.5rem;">
+                            <span class="tech-badge">PCB Soldering</span>
+                            <span class="tech-badge">Schematic Literacy</span>
+                            <span class="tech-badge">Component Testing</span>
+                        </div>
+                    </div>
+                `,
+                
+                fitness: `
+                    <div class="detail-content animate-fade">
+                        <h3>SyncFit (Fitness Tracker Application)</h3>
+                        <p>Developed a functional prototype for a comprehensive personal tracking software tool handling metric calculations and registration routines.</p>
+                        <p><strong>Features: </strong>
+                            <ul>
+                                <li>Exercise Tracking</li>
+                                <li>BMI Calculator</li>
+                                <li>One-rep max calculator</li>
+                                <li>Sleep tracking</li>
+                                <li>User login and signup system</li>
+                            </ul>
+                        </p>
+
+                        <p><strong>Tools: </strong>
+                            <ul>
+                                <li>Figma</li>
+                                <li>C++</li>
+                                <li>HTML/CSS</li>
+                            </ul>
+                        </p>
+                        
+                        <div class="modal-image-row">
+                            <div class="modal-img-container">
+                                <img src="syncLogo.jpg" alt="SyncFit Logo">
+                            </div>
+                            <div class="modal-img-container">
+                                <img src="syncTerminal.jpg" alt="C++ terminal output">
+                            </div>
+                        </div>
+
+                        <div class="tech-badge-container" style="margin-top: 1.5rem;">
+                            <span class="tech-badge">C++</span>
+                            <span class="tech-badge">Figma</span>
+                        </div>
+                    </div>
+                `,
+                water: `
+                    <div class="detail-content animate-fade">
+                        <h3>Water Filtration System (Engineering Competition 2025)</h3>
+                        <p>Collaborated to build a working water-purification tower prototype</p>
+                        <p><strong>Criteria: </strong>
+                            <ul>
+                                <li>Flow Rate</li>
+                                <li>Filtration Design</li>
+                                <li>pH Regulation</li>
+                                <li>Visual Clarity</li>
+                            </ul>
+                        </p>
+                        
+                        <div class="modal-image-row">
+                            <div class="modal-img-container">
+                                <img src="filterReal.png" alt="Filtration Tower">
+                            </div>
+                            <div class="modal-img-container">
+                                <img src="filterDesign.png" alt="Filtration Tower CAD">
+                            </div>
+                        </div>
+
+                        <div class="tech-badge-container" style="margin-top: 1.5rem;">
+                            <span class="tech-badge">Rapid Prototyping</span>
+                            <span class="tech-badge">Crafting/Building</span>
+                            <span class="tech-badge">Teamwork</span>
+                        </div>
+                    </div>
+                `
+            };
+
+            const cards = document.querySelectorAll('.category-card');
+            const modal = document.getElementById('projectModal');
+            const modalBody = document.getElementById('modalBody');
+            const closeBtn = document.querySelector('.modal-close-btn');
+            const overlay = document.querySelector('.modal-overlay');
+
+            function openModal(category) {
+                if(projectData[category]) {
+                    modalBody.innerHTML = projectData[category];
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    modal.setAttribute('aria-hidden', 'false');
+
+                    setupSubProjectTabs();
+                }
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                modal.setAttribute('aria-hidden', 'true');
+                setTimeout(() => { modalBody.innerHTML = ''; }, 300);
+            }
+
+            function setupSubProjectTabs() {
+                const detailPanel = document.getElementById('detailPanel');
+                const subTabs = modalBody.querySelectorAll('.sub-project-item');
+                
+                if (!detailPanel || subTabs.length === 0) return;
+
+                const initialKey = subTabs[0].getAttribute('data-sub');
+                if (subProjectDetails[initialKey]) {
+                    detailPanel.innerHTML = subProjectDetails[initialKey];
+                }
+
+                subTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        subTabs.forEach(t => t.classList.remove('active-tab'));
+                        tab.classList.add('active-tab');
+                        
+                        const subKey = tab.getAttribute('data-sub');
+                        if (subProjectDetails[subKey]) {
+                            detailPanel.innerHTML = subProjectDetails[subKey];
+                        }
+                    });
+                });
+            }
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const category = card.getAttribute('data-category');
+                    openModal(category);
+                });
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', closeModal);
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+            });
+        });
+    </script>
+</body>
+</html>
