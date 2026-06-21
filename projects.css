@@ -411,21 +411,3 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 968px) {
-    .modal-side-layout {
-        flex-direction: column;
-    }
-    .modal-side-images {
-        max-width: 100%;
-        order: 2;
-    }
-    .modal-side-text {
-        order: 1;
-    }
-    .category-grid, .modal-split {
-        grid-template-columns: 1fr;
-    }
-    .modal-body {
-        padding: 2rem;
-    }
-}

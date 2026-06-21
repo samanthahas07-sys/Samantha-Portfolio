@@ -419,14 +419,3 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
-    .skills-tabs {
-        grid-template-columns: 1fr;
-    }
-    .skills-display-deck {
-        padding: 1.5rem;
-    }
-    .info-text-side {
-        padding: 2rem 1.5rem;
-    }
-}

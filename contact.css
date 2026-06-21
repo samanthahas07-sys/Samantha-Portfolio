@@ -79,14 +79,3 @@
 .contact-card-link:hover .contact-action, .discord-card:hover .contact-action {
     color: var(--text-main);
 }
-
-@media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .contact-item-card {
-        padding: 2rem;
-    }
-}
