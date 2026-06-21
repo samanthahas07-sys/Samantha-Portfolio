@@ -429,3 +429,35 @@ body {
         padding: 2rem;
     }
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        gap: 1.2rem;
+        justify-content: center;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .modal-window {
+        width: 95%;
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+}
